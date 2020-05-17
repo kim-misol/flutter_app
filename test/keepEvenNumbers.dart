@@ -1,24 +1,32 @@
 main() {
   // keepEvenNumbers([1, 3, 4, 5, 6]); ==> [4, 6]
-  // print(keepEvenNumbers([1, 3, 4, 5, 6]));
-  keepEvenNumbers([1, 3, 4, 5, 6]);
+  print(keepEvenNumbers3([1, 3, 4, 5, 6]));
 }
 
-int keepEvenNumbers(dynamic arr) {
-  dynamic even_arr;
-  bool is_even;
-  int cnt = 0;
+List<int> keepEvenNumbers(List<int> arr) {
+  List<int> evenNumbers = [];
 
   for (int i = 0; i < arr.length; i++) {
-    is_even = arr[i].isEven;
-    if (is_even) {
-      // even_arr[cnt] = arr[i];
-      // even_arr.insert(cnt, arr[i]);
-      print(arr[i]);
-      // print(even_arr[cnt]);
-
-      cnt++;
+    bool isEven = arr[i].isEven;
+    if (isEven) {
+      evenNumbers.add(arr[i]);
     }
   }
-  return even_arr;
+  return evenNumbers;
+}
+
+List<int> keepEvenNumbers2(List<int> arr) {
+  List<int> evenNumbers = [];
+
+  for (final number in arr) {
+    final isEven = number.isEven;
+    if (isEven) {
+      evenNumbers.add(number);
+    }
+  }
+  return evenNumbers;
+}
+
+List<int> keepEvenNumbers3(List<int> arr) {
+  return arr.where((element) => element.isEven);
 }
